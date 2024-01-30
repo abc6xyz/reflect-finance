@@ -78,16 +78,13 @@ export default function Home() {
                 <Tag tagName={"$REFLECT Marketcap"} tagData1={"$ 29 m"} tagData2={""}></Tag>
               </div>
               <div className="w-full px-4 xl:pt-1">
-                <div className="rounded-xl h-56 bg-[#353952] justify-center flex items-center text-4xl ">
-                  list of top holders
-                </div>
+                <input type="name" className="rounded-xl w-full h-16 bg-[#353952] justify-center flex items-center text-2xl text-center border-2 border-[#eeeeee] bg-gradient-to-r from-[#5e08d9] to-[#ae17ef]" placeholder="Paste wallet"></input>
               </div>
             </div>
           </div>
           <div className="w-full xl:w-[30%] p-4 xl:pb-0">
             <div className="w-full h-full rounded-xl bg-[#353952] flex items-center justify-center">
               <div className="py-10">
-                <TotalTag></TotalTag>
                 <TotalTag></TotalTag>
                 <div className="px-5">
                   <div className="px-7 text-xl text-center bg-gradient-to-r from-[#6e18e9] to-[#be27ff] hover:brightness-125 py-5 rounded-full cursor-pointer duration-300 " >
